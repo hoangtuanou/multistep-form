@@ -46,3 +46,8 @@ export const ADD_ONS = [
     name: 'profile',
   },
 ]
+
+export const BILLING = {
+  MONTHLY: 'monthly',
+  YEARLY: 'yearly',
+}

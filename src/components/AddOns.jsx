@@ -1,8 +1,11 @@
 import { useState, useImperativeHandle, forwardRef } from 'react'
 import FormLayout from '@/layout/FormLayout'
-import { ADD_ONS } from '@/constants'
+import { ADD_ONS, BILLING } from '@/constants'
+import useFormStore from '@/store'
+import { generatePriceText } from '@/helpers'
 
 const AddOns = forwardRef(function AddOns(props, ref) {
+  const formData = useFormStore((state) => state.data)
   const [addOns, setAddOns] = useState([])
 
   const handleChange = (item) => {
@@ -51,7 +54,7 @@ const AddOns = forwardRef(function AddOns(props, ref) {
               <p className="text-xs text-gray">{desc}</p>
             </div>
             <p className="flex-1 text-right text-xs text-purplish-blue">
-              +${price}/mo
+              +{generatePriceText(formData.billing || BILLING.MONTHLY, price)}
             </p>
           </div>
         ))}

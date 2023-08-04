@@ -32,14 +32,14 @@ function App() {
   }
 
   return (
-    <div className="relative min-h-[100dvh] md:top-1/2 md:mx-auto md:flex md:max-h-[50vh] md:min-h-[40vh] md:w-[800px] md:max-w-[80vw] md:-translate-y-1/2 md:rounded-lg md:bg-white md:p-4">
+    <div className="relative min-h-[100dvh] md:top-1/2 md:mx-auto md:flex md:min-h-[40vh] md:w-[800px] md:max-w-[80vw] md:-translate-y-1/2 md:rounded-lg md:bg-white md:p-4">
       <div className="relative md:flex-1">
         <picture className="md:h-full">
           <source media="(min-width: 768px)" srcSet={imgDesktop}></source>
           <img
             src={imgMobile}
             alt="background-img"
-            className="h-full w-full md:w-auto"
+            className="h-full w-full object-cover md:w-auto md:rounded-lg"
           />
         </picture>
         <ul className="absolute left-1/2 top-8 flex -translate-x-1/2 gap-3 md:left-8 md:translate-x-0 md:flex-col md:gap-7">

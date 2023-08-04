@@ -1,12 +1,8 @@
 import { useState, useImperativeHandle, forwardRef } from 'react'
 import FormLayout from '@/layout/FormLayout'
 import Switch from './Switch'
-import { PLAN_DATA } from '@/constants'
-
-const BILLING = {
-  MONTHLY: 'monthly',
-  YEARLY: 'yearly',
-}
+import { PLAN_DATA, BILLING } from '@/constants'
+import { generatePriceText } from '@/helpers'
 
 const YourPlan = forwardRef(function YourPlan(props, ref) {
   const [cycleBilling, setCycleBilling] = useState(BILLING.MONTHLY)
@@ -39,7 +35,9 @@ const YourPlan = forwardRef(function YourPlan(props, ref) {
               <img src={icon} alt="arcade-plan" className="h-8 w-8" />
               <div>
                 <p className="font-ubuntu-medium text-marine-blue">{title}</p>
-                <p className="text-sm text-gray">${price}/mo</p>
+                <p className="text-sm text-gray">
+                  {generatePriceText(cycleBilling, price)}
+                </p>
                 {cycleBilling === BILLING.YEARLY && (
                   <p className="text-xs text-marine-blue">2 months free</p>
                 )}
